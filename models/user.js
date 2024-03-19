@@ -41,6 +41,21 @@ userSchema.pre('save', async function(next){
 
 })
 
+userSchema.statics.checkUser = async(email, password)=>{
+    if(!email || !password)
+    throw Error('All fields are required!');
+
+    const user = this.findOne({email});
+    if(!user)
+    throw Error('Email not registered.');
+
+    const passMatch = await bcrypt.compare(password, user.password);
+    if(!passMatch)
+    throw Error('Password Incorrect');
+
+    return {...user, password:undefined};
+}
+
 const User = model('user',userSchema);
 
 module.exports = {

@@ -18,8 +18,16 @@ await User.create({
 return res.redirect("/");
 };
 
+const loginUser = async (req, res)=>{
+    const {email, password} = req.body;
+    const user = User.checkUser(email, password);
+
+    console.log(user);
+    return res.redirect("/");
+}
 module.exports = {
     login,
     signup,
-    createUser
+    createUser,
+    loginUser
 }
