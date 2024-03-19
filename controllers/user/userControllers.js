@@ -20,9 +20,9 @@ return res.redirect("/");
 
 const loginUser = async (req, res)=>{
     const {email, password} = req.body;
-    const user = User.checkUser(email, password);
+    const user = await User.checkUser(email, password);
 
-    console.log(user);
+    //console.log(user);
     return res.redirect("/");
 }
 module.exports = {
