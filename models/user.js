@@ -20,10 +20,6 @@ const userSchema = new Schema({
         enum: ["USER", "ADMIN"],
         default: "USER"
     },
-    salt: {
-        type: String,
-        required: true
-    },
     password: {
         type: String,
         required: true
