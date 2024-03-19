@@ -1,11 +1,11 @@
 const User = require("../../models/user")
 
 const login = (req,res)=>{
-    return res.redirect('login');
+    return res.render('login');
 };
 
 const signup = (req, res)=>{
-    return res.redirect("signup")
+    return res.render("signup")
 };
 
 const createUser = async (req, res)=>{
