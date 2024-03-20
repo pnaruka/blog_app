@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+        <title>Add Blog</title>
+</head>
+
+<body>
+    <%- include('./partials/nav') %>
+        <div className='container mt-4 blog-form'>
+            <form>
+                <div class="mb-3">
+                    <label for="coverImg" class="form-label">Cover Image</label>
+                    <input name="coverImg" type="file" class="form-control" id="coverImg">
+                  </div>
+                <div class="mb-3">
+                    <label for="titleInput" class="form-label">Title</label>
+                    <input name="title" type="text" class="form-control" id="titleInput">
+                  </div>
+                  <div class="mb-3">
+                    <label for="contentInput" class="form-label">Content</label>
+                    <textarea name="body" class="form-control" id="contentInput" rows="3"></textarea>
+                  </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <%- include('./partials/scripts.js') %>
+</body>
+
+</html>

@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
 const { checkForAuthCookie } = require("./middlerwares/authentication.js");
+const { BlogRouter } = require("./routes/blog.js");
 
 dotenv.config({path:'./.env'});
 const DB_URL = `mongodb+srv://pnarukaosw:${process.env.DB_PASS}@blogbase.pt9ynya.mongodb.net/?retryWrites=true&w=majority&appName=blogBase`
@@ -15,6 +16,7 @@ app.set("view engine", "ejs");
 app.set("views",path.resolve("./views"))
 app.use(express.urlencoded({extended:false}));
 app.use('/user', UserRouter);
+app.use('/blog',BlogRouter);
 app.use(cookieParser());
 app.use(checkForAuthCookie("token"));
 
