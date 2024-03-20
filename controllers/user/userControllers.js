@@ -32,9 +32,14 @@ const loginUser = async (req, res) => {
     }
 }
 
+const logoutUser = async(req, res)=>{
+    res.clearCookie("token").redirect("/");
+}
+
 module.exports = {
     login,
     signup,
     createUser,
-    loginUser
+    loginUser,
+    logoutUser
 }

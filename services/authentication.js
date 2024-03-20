@@ -4,8 +4,10 @@ function createToken(user){
     //console.log(secret);
     const payload = {
         _id: user._id,
+        fullName:user.fullName,
         email: user.email,
-        role: user.role
+        role: user.role,
+        image:user.profileImg
     };
     const token = jwt.sign(payload, process.env.SECRET_KEY);
     return token;
