@@ -9,7 +9,7 @@
 <body>
     <%- include('./partials/nav') %>
         <div className='container mt-4 blog-form'>
-            <form>
+            <form action="/blog/add" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="coverImg" class="form-label">Cover Image</label>
                     <input name="coverImg" type="file" class="form-control" id="coverImg">

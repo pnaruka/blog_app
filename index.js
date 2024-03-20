@@ -15,10 +15,11 @@ const PORT = 8000 || process.env.PORT;
 app.set("view engine", "ejs");
 app.set("views",path.resolve("./views"))
 app.use(express.urlencoded({extended:false}));
-app.use('/user', UserRouter);
-app.use('/blog',BlogRouter);
 app.use(cookieParser());
 app.use(checkForAuthCookie("token"));
+app.use('/user', UserRouter);
+app.use('/blog',BlogRouter);
+
 
 mongoose.connect(DB_URL).then(()=>{
     console.log('DB connected');
