@@ -1,6 +1,8 @@
 const { User } = require("../../models/user")
 
 const login = (req, res) => {
+    if (req.user)
+        return res.redirect("/blog/home");
     return res.render('login');
 };
 
@@ -19,20 +21,21 @@ const createUser = async (req, res) => {
 };
 
 const loginUser = async (req, res) => {
+
     try {
         const { email, password } = req.body;
         //console.log("here");
         const token = await User.checkUser(email, password);
         //console.log(token);
-        return res.cookie("token", token).redirect("/");
+        return res.cookie("token", token).redirect("/blog/home");
     } catch (error) {
         return res.render("login", {
-            error:error.message
+            error: error.message
         });
     }
 }
 
-const logoutUser = async(req, res)=>{
+const logoutUser = async (req, res) => {
     res.clearCookie("token").redirect("/");
 }
 

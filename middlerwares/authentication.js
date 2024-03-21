@@ -17,22 +17,16 @@ function checkForAuthCookie(cookieName){
     };
 }
 
-const loginRedirect = (req,res,next)=>{
+const isUserSignedIn = (req, res, next)=>{
     if(req.user)
     return next();
 
+    console.log(next);
     return res.redirect("/user/login");
 }
 
-const homeRedirect = (req,res,next)=>{
-    if(req.user)
-    return res.redirect("/blog/home");
-
-    return next();
-}
 
 module.exports = {
     checkForAuthCookie,
-    loginRedirect,
-    homeRedirect
+    isUserSignedIn
 }

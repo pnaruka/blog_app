@@ -4,7 +4,7 @@ const {UserRouter} = require("./routes/user.js")
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
-const { checkForAuthCookie} = require("./middlerwares/authentication.js");
+const { checkForAuthCookie, isUserSignedIn} = require("./middlerwares/authentication.js");
 const { BlogRouter } = require("./routes/blog.js");
 
 dotenv.config({path:'./.env'});
@@ -19,6 +19,7 @@ app.use(express.urlencoded({extended:false}));
 app.use(cookieParser());
 app.use(checkForAuthCookie("token"));
 app.use('/user', UserRouter);
+app.use(isUserSignedIn);
 app.use('/blog',BlogRouter);
 
 
@@ -30,7 +31,7 @@ mongoose.connect(DB_URL).then(()=>{
 
 
 app.get("/",(req, res)=>{
-    return res.redirect("/blog/home");
+    return res.redirect("/user/login");
 });
 
 app.listen(PORT, ()=>{
