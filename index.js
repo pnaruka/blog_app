@@ -4,7 +4,7 @@ const {UserRouter} = require("./routes/user.js")
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
-const { checkForAuthCookie } = require("./middlerwares/authentication.js");
+const { checkForAuthCookie} = require("./middlerwares/authentication.js");
 const { BlogRouter } = require("./routes/blog.js");
 
 dotenv.config({path:'./.env'});
@@ -14,6 +14,7 @@ const PORT = 8000 || process.env.PORT;
 
 app.set("view engine", "ejs");
 app.set("views",path.resolve("./views"))
+app.use(express.static(path.resolve('./public')));
 app.use(express.urlencoded({extended:false}));
 app.use(cookieParser());
 app.use(checkForAuthCookie("token"));
@@ -29,7 +30,7 @@ mongoose.connect(DB_URL).then(()=>{
 
 
 app.get("/",(req, res)=>{
-    res.render("home", {user:req.user});
+    return res.redirect("/blog/home");
 });
 
 app.listen(PORT, ()=>{

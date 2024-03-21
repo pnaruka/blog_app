@@ -1,7 +1,8 @@
 const { Router } = require("express");
-const { createBlog, createBlogView } = require("../controllers/blog/blogControllers");
+const { createBlog, createBlogView, showBlogs } = require("../controllers/blog/blogControllers");
 const multer = require("multer");
 const path = require('path');
+const { loginRedirect } = require("../middlerwares/authentication");
 
 const BlogRouter = Router();
 
@@ -16,10 +17,10 @@ const storage = multer.diskStorage({
 })
 
 const upload = multer({storage});
-
+BlogRouter.use(loginRedirect);
 BlogRouter.get('/add', createBlogView);
 BlogRouter.post('/add',upload.single('coverImg'), createBlog);
-
+BlogRouter.get('/home',showBlogs);
 
 module.exports = {
     BlogRouter

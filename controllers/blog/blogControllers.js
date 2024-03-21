@@ -1,4 +1,5 @@
 const {Blog} = require("../../models/blog");
+const { User } = require("../../models/user");
 
 
 const createBlogView = async(req, res)=>{
@@ -19,7 +20,16 @@ const createBlog = async(req, res)=>{
     return res.redirect(`/blog/${blog._id}`);
 }
 
+const showBlogs = async(req, res)=>{
+    const allBlogs = await Blog.find({});
+    return res.render("home",{
+        user: req.user,
+        blogs: allBlogs
+    });
+}
+
 module.exports = {
     createBlogView,
-    createBlog
+    createBlog,
+    showBlogs
 }
