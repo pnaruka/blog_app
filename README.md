@@ -43,7 +43,7 @@ Access the application through your web browser at `http://localhost:8000` \
 `Home`: ![Home](readMe_screenshots/home.png) \
 `Add Blog`: ![Add Blog](readMe_screenshots/addBlog.png) \
 `Blog View`: ![Blog View](readMe_screenshots/viewBlog.png) \
-`Comments`: ![Comments](readMe_screenshots/comments.png) \
+`Comments`: ![Comments](readMe_screenshots/comments.png) 
 
 ## Contributing <a name="contributing"></a>:
 Contributions are welcome! Here's how you can contribute:\
