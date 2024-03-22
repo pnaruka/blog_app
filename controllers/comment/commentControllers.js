@@ -11,13 +11,7 @@ const createComment = async (req, res)=>{
     return res.redirect(`/blog/${req.params.blogId}`);
 };
 
-const showComments = async (req, res)=>{
-    const comments = await Comment.find({blogId:req.params.blogId});
-
-    return res.render(`/blog/${req.params.blogId}`,{comments});
-}
 
 module.exports = {
-    createComment,
-    showComments
+    createComment
 }
