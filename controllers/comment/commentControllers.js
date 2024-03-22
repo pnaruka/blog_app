@@ -1,19 +1,20 @@
-const Comment = require('../../models/comment');
+const {Comment} = require('../../models/comment');
 
 const createComment = async (req, res)=>{
+    //console.log(req.body);
+    
     await Comment.create({
-        body: req.body.body,
-        blogId: req.params._id,
+        body: req.body.content,
+        blogId: req.params.blogId,
         createdBy: req.user._id
     });
-
-    return res.redirect(`/blog/${req.params._id}`);
+    return res.redirect(`/blog/${req.params.blogId}`);
 };
 
 const showComments = async (req, res)=>{
-    const comments = await Comment.find({blogId:req.params._id});
+    const comments = await Comment.find({blogId:req.params.blogId});
 
-    return res.render(`/blog/${req.params._id}`,{comments});
+    return res.render(`/blog/${req.params.blogId}`,{comments});
 }
 
 module.exports = {

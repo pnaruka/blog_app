@@ -3,8 +3,8 @@ const { createComment, showComments } = require("../controllers/comment/commentC
 
 const CommentRouter = Router();
 
-CommentRouter.post('/add', createComment);
-CommentRouter.get('/show', showComments);
+CommentRouter.post('/add/:blogId', createComment);
+CommentRouter.get('/show/:blogId', showComments);
 
 module.exports = {
     CommentRouter

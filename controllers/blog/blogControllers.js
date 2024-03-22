@@ -30,7 +30,8 @@ const showBlogs = async(req, res)=>{
 
 const showThisBlog = async(req, res)=>{
     const {id} = req.params;
-    const blog = await Blog.findById(id);
+    const blog = await Blog.findById(id).populate("createdBy");
+    //console.log(blog);
     return res.render("blog",{
         user: req.user,
         blog
