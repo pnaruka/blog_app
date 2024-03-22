@@ -1,7 +1,10 @@
 # Blog App
 
 ## Description:
-This is a simple blogging application built on Node js.
+This is a simple blogging application built on Node js. \
+MongoDB and Mongoose are used to save data. \
+Express is used to write APIs. \
+EJS is used for server side rendering.
 
 ## Table of Contents
 
