@@ -29,7 +29,12 @@ Access the application through your web browser at `http://localhost:8000` \
 (You can change the port in index.js file)
 
 ## Screenshots:
-<font size="+5">`Login`</font>: ![Login](readMe_screenshots/login.png)
+`Signup`:\ ![Signup](readMe_screenshots/signup.png) \
+`Login`:\ ![Login](readMe_screenshots/login.png) \
+`Home`:\ ![Home](readMe_screenshots/home.png) \
+`Add Blog`:\ ![Add Blog](readMe_screenshots/addBlog.png) \
+`Blog View`:\ ![Blog View](readMe_screenshots/viewBlog.png) \
+`Comments`:\ ![Comments](readMe_screenshots/comments.png) \
 
 ## Contributing:
 Contributions are welcome! Here's how you can contribute:\
