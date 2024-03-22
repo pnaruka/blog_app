@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+    <title>Home</title>
+</head>
+
+<body>
+    <%- include('./partials/nav') %>
+    <div class="container mt-3">
+        <h1><%= blog.title %></h1>
+        <div class="imgContainer">
+            <img src="<%= blog.coverImgUrl %>" alt="<%= blog.title %>" width="500px" height="500px">
+        </div>
+        <div class="blog-body">
+            <pre>
+                <%= blog.body %>
+            </pre>
+        </div>
+    </div>
+    <%- include('./partials/scripts.js') %>
+</body>
+
+</html>

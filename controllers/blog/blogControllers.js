@@ -28,8 +28,18 @@ const showBlogs = async(req, res)=>{
     });
 }
 
+const showThisBlog = async(req, res)=>{
+    const {id} = req.params;
+    const blog = await Blog.findById(id);
+    return res.render("blog",{
+        user: req.user,
+        blog
+    });
+}
+
 module.exports = {
     createBlogView,
     createBlog,
-    showBlogs
+    showBlogs,
+    showThisBlog
 }
