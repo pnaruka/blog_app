@@ -6,6 +6,7 @@ const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
 const { checkForAuthCookie, isUserSignedIn} = require("./middlerwares/authentication.js");
 const { BlogRouter } = require("./routes/blog.js");
+const { CommentRouter } = require("./routes/comment.js");
 
 dotenv.config({path:'./.env'});
 const DB_URL = `mongodb+srv://pnarukaosw:${process.env.DB_PASS}@blogbase.pt9ynya.mongodb.net/?retryWrites=true&w=majority&appName=blogBase`
@@ -21,6 +22,7 @@ app.use(checkForAuthCookie("token"));
 app.use('/user', UserRouter);
 app.use(isUserSignedIn);
 app.use('/blog',BlogRouter);
+app.use('/comment',CommentRouter);
 
 
 mongoose.connect(DB_URL).then(()=>{
