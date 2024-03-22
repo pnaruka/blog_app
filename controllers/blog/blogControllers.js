@@ -40,9 +40,19 @@ const showThisBlog = async(req, res)=>{
     });
 }
 
+
+const deleteBlog = async(req, res)=>{
+    const {id} = req.params;
+    await Blog.findByIdAndDelete(id);
+    await Comment.deleteMany({blogId: id});
+
+    return res.redirect("/");
+}
+
 module.exports = {
     createBlogView,
     createBlog,
     showBlogs,
-    showThisBlog
+    showThisBlog,
+    deleteBlog
 }

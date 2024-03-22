@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { createBlog, createBlogView, showBlogs, showThisBlog } = require("../controllers/blog/blogControllers");
+const { createBlog, createBlogView, showBlogs, showThisBlog, deleteBlog } = require("../controllers/blog/blogControllers");
 const multer = require("multer");
 const path = require('path');
 
@@ -20,6 +20,7 @@ BlogRouter.get('/add', createBlogView);
 BlogRouter.post('/add',upload.single('coverImg'), createBlog);
 BlogRouter.get('/home',showBlogs);
 BlogRouter.get('/:id', showThisBlog);
+BlogRouter.delete("/delete/:id", deleteBlog);
 
 module.exports = {
     BlogRouter

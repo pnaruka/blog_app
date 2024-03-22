@@ -11,7 +11,7 @@ This is a simple blogging application built on Node js.
 `routes`: Route definitions\
 `controllers`: Controller function definitions, to write or read data\
 `public`: Holds user image uploads and default images\
-`services`: Functions to create and validate token to keep user signed in\
+`services`: Functions to create and validate token to keep user signed in
 
 ## Installation:
 To install the project, follow these steps:
@@ -28,7 +28,10 @@ Run the project: `npm start`\
 Access the application through your web browser at `http://localhost:8000` \
 (You can change the port in index.js file)
 
-### Contributing:
+## Screenshots:
+`Login`: ![Login]('./readMe_screenshots/login.png')
+
+## Contributing:
 Contributions are welcome! Here's how you can contribute:\
 Fork the repository\
 Create a new branch: `git checkout -b feature`\
